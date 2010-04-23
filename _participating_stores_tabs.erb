@@ -1,0 +1,22 @@
+<%# part of participate stores template%>
+
+<div class="StoreList">
+  <% remote_form_for  participating_stores_path() ,  :method => :get ,:html => { :id => 'StoresformTabs'} do -%>
+    <div id="Tabs">
+      <%= hidden_field_tag('active_Tab',@type, :id => 'typeTab') %>
+      <div id="all_storesTab" class="Tab" onclick="switchTabs(this,'all_store'); return false;">All Stores</div>
+      <div id="myneighbourhoodsTab" class="Tab" onclick="switchTabs(this,'myneighbourhood');return false;">My Neighbourhood</div>  
+    </div>
+
+    <br clear="all"/>
+    <div class="searchBar"> </div>
+    <div><%= submit_tag('Go', :id => 'change', :style=>'display:none;') %></div>
+
+  <%end #form %>
+</div>
+
+<br clear="all"/>
+
+ <% javascript_tag do %>
+        switchTabs($($('typeTab').getValue()+'sTab'),null);
+ <% end %>

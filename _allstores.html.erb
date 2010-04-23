@@ -1,0 +1,9 @@
+<%# content  of all stotes tab %>
+
+<div id ="allstores_list">
+  <ul>
+    <%- @merchants.each do |merc| -%>
+      <li><%= link_to merc.name, merc %> </li>
+    <%- end %>
+  </ul>
+</div>
